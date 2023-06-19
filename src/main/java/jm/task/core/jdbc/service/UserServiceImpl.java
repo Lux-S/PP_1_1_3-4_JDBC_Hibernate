@@ -10,11 +10,11 @@ import java.util.List;
 
 public class UserServiceImpl implements UserService {
 
-    private UserDao userDao;
+    private final UserDao userDao;
 
     public UserServiceImpl() {
-        // Создайте объект UserDaoJDBCImpl с передачей соединения в конструктор
-        Connection connection = Util.getConnection(); // Получите соединение с базой данных из класса Util
+        // Создаем объект UserDaoJDBCImpl с передачей соединения в конструктор
+        Connection connection = Util.getConnection(); // Получаем соединение с базой данных из класса Util
         userDao = new UserDaoJDBCImpl(connection);
     }
 

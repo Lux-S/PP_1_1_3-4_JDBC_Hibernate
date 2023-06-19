@@ -14,10 +14,11 @@ public class Main {
         userService.createUsersTable();
 
         // Добавляем пользователей
-        userService.saveUser("John", "Doe", (byte) 25);
-        userService.saveUser("Jane", "Smith", (byte) 30);
-        userService.saveUser("Bob", "Johnson", (byte) 35);
-        userService.saveUser("Alice", "Williams", (byte) 28);
+
+        saveUserAndPrintMessage(userService, "Mila", "Sutormina", (byte) 40);
+        saveUserAndPrintMessage(userService, "Evgeny", "Samsonov", (byte) 30);
+        saveUserAndPrintMessage(userService, "Liza", "Artamonova", (byte) 35);
+        saveUserAndPrintMessage(userService, "Alice", "Ivanova", (byte) 45);
 
         // Получаем всех пользователей
         List<User> users = userService.getAllUsers();
@@ -30,5 +31,10 @@ public class Main {
 
         // Удаляем таблицу пользователей
         userService.dropUsersTable();
+    }
+
+    private static void saveUserAndPrintMessage(UserService userService, String firstName, String lastName, byte age) {
+        userService.saveUser(firstName, lastName, age);
+        System.out.printf("User с именем – %s добавлен в базу данных.\n", firstName);
     }
 }
